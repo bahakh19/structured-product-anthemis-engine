@@ -74,7 +74,7 @@ $$
 Paths are simulated exactly on the observation dates:
 
 $$
-S_{t_j} = S_{t_{j-1}} \exp \left( \left( r_j - q - \frac{1}{2} \sigma^2 \right) \Delta t_j + \sigma \sqrt{\Delta t_j} \, Z_j \right), \qquad Z_j \sim \mathcal{N}(0, 1)
+S_{t_j} = S_{t_{j-1}} \exp \left( \left( r_j - q - \frac{1}{2} \sigma^2 \right) \Delta t_j + \sigma \sqrt{\Delta t_j} Z_j \right) \qquad Z_j \sim \mathcal{N}(0, 1)
 $$
 
 Inputs: $\sigma$ = 19.03% (the 260-day volatility of the index on 8 June 2021, from the data file), dividend yield $q$ = 2.67% (projected 12-month yield from Bloomberg), and $r_j$ the interpolated zero rate at $t_j$.
@@ -84,11 +84,11 @@ Inputs: $\sigma$ = 19.03% (the 260-day volatility of the index on 8 June 2021, f
 Under $\mathbb{Q}$:
 
 $$
-dS_t = (r_t - q) \, S_t \, dt + \sqrt{v_t} \, S_t \, dW^S_t
+dS_t = (r_t - q) S_t dt + \sqrt{v_t} S_t dW^S_t
 $$
 
 $$
-dv_t = \kappa \, (\theta - v_t) \, dt + \eta \sqrt{v_t} \, dW^v_t, \qquad d\langle W^S, W^v \rangle_t = \rho \, dt
+dv_t = \kappa (\theta - v_t) \, dt + \eta \sqrt{v_t} \, dW^v_t, \qquad d\langle W^S, W^v \rangle_t = \rho \, dt
 $$
 
 Parameters used in the notebook:
