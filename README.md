@@ -28,7 +28,7 @@ There is no early redemption. Everything is paid at maturity.
 **Bonus.** On each observation date $t_i$ the note earns a bonus of 5.50% of the nominal $N$ if the index closes at or above the bonus barrier:
 
 $$
-\text{Bonus}_i = 0.055 \, N \cdot \mathbf{1}_{\{ S_{t_i} \ge 0.70 \, S_0 \}}, \qquad i = 1, \dots, 10
+\text{Bonus}_i = 0.055 \x N \cdot \mathbf{1}_{\{ S_{t_i} \ge 0.70 \, S_0 \}}, \qquad i = 1, \dots, 10
 $$
 
 **Redemption.** At maturity the capital is repaid in full unless the index finished below the capital barrier, in which case the investor bears the full fall of the index:
