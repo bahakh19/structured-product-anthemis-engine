@@ -28,7 +28,7 @@ There is no early redemption. Everything is paid at maturity.
 **Bonus.** On each observation date $t_i$ the note earns a bonus of 5.50% of the nominal $N$ if the index closes at or above the bonus barrier:
 
 $$
-\text{Bonus}_i = 0.055N \cdot \mathbf{1}_{\{ S_{t_i} \ge 0.70 \, S_0 \}}, \qquad i = 1, \dots, 10
+\text{Bonus}_i = 0.055N \cdot \mathbf{1}_{\{ S_{t_i} \ge 0.70 S_0 \}} \qquad i = 1, \dots, 10
 $$
 
 **Redemption.** At maturity the capital is repaid in full unless the index finished below the capital barrier, in which case the investor bears the full fall of the index:
@@ -36,8 +36,8 @@ $$
 $$
 R =
 \begin{cases}
-N & \text{if } S_T \ge 0.60 \, S_0 \\
-N \cdot \dfrac{S_T}{S_0} & \text{if } S_T < 0.60 \, S_0
+N & \text{if } S_T \ge 0.60  S_0 \\
+N \cdot \dfrac{S_T}{S_0} & \text{if } S_T < 0.60 S_0
 \end{cases}
 $$
 
@@ -88,7 +88,7 @@ dS_t = (r_t - q) S_t dt + \sqrt{v_t} S_t dW^S_t
 $$
 
 $$
-dv_t = \kappa (\theta - v_t) \, dt + \eta \sqrt{v_t} \, dW^v_t, \qquad d\langle W^S, W^v \rangle_t = \rho \, dt
+dv_t = \kappa (\theta - v_t) dt + \eta \sqrt{v_t} dW^v_t \qquad d\langle W^S, W^v \rangle_t = \rho \, dt
 $$
 
 Parameters used in the notebook:
@@ -103,14 +103,14 @@ Parameters used in the notebook:
 
 These values are chosen by hand. They are not calibrated to an option surface. The Feller condition $2 \kappa \theta \ge \eta^2$ does not hold ($0.145 < 2.25$), so the variance can reach zero.
 
-**Discretisation.** The time grid has a step of 0.01 years, plus the observation dates. On each step $\Delta t$, with correlated shocks $Z^v = \rho \, Z^S + \sqrt{1 - \rho^2} \, Z^{\perp}$:
+**Discretisation.** The time grid has a step of 0.01 years, plus the observation dates. On each step $\Delta t$, with correlated shocks $Z^v = \rho Z^S + \sqrt{1 - \rho^2} Z^{\perp}$:
 
 $$
-S_{k+1} = S_k \exp \left( \left( r_k - q - \frac{1}{2} v_k \right) \Delta t + \sqrt{v_k \, \Delta t} \; Z^S_k \right)
+S_{k+1} = S_k \exp \left( \left( r_k - q - \frac{1}{2} v_k \right) \Delta t + \sqrt{v_k  \Delta t}  Z^S_k \right)
 $$
 
 $$
-v_{k+1} = v_k + \kappa \, (\theta - v_k) \, \Delta t + \eta \sqrt{v_k \, \Delta t} \; Z^v_k
+v_{k+1} = v_k + \kappa  (\theta - v_k)  \Delta t + \eta \sqrt{v_k  \Delta t}  Z^v_k
 $$
 
 If the new variance is not positive, the same update is recomputed with the sign of the variance shock flipped, $-Z^v_k$ (a reflection of the noise term). Because the drift part is positive for this step size, the flipped update is always positive.
