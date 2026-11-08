@@ -68,7 +68,7 @@ Rates are negative over most of the curve, so some discount factors are slightly
 Under the risk-neutral measure $\mathbb{Q}$:
 
 $$
-dS_t = (r_t - q) \, S_t \, dt + \sigma \, S_t \, dW_t
+dS_t = (r_t - q) S_t dt + \sigma S_t dW_t
 $$
 
 Paths are simulated exactly on the observation dates:
