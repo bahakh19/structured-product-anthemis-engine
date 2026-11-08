@@ -46,7 +46,7 @@ $$
 With $N = 100$, $k = 3$ locked bonuses and $F$ the set of the 7 remaining observation dates, the value computed by the code is
 
 $$
-V_0 = P(0, T) \; \mathbb{E}^{\mathbb{Q}} \left[ 5.5 \left( k + \sum_{i \in F} \mathbf{1}_{\{ S_{t_i} \ge 0.70 \, S_0 \}} \right) + R \right]
+V_0 = P(0, T) \mathbb{E}^{\mathbb{Q}} \left[ 5.5 \left( k + \sum_{i \in F} \mathbf{1}_{\{ S_{t_i} \ge 0.70 \, S_0 \}} \right) + R \right]
 $$
 
 where the expectation is estimated by Monte Carlo with 10,000 paths.
